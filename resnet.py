@@ -43,21 +43,21 @@ def res_module(x,filters):
 
 def build_resnet(x):
     filters = 64
-    l1 = conv2d(x,filtes,ks=7,stride=2)
+    l1 = conv2d(x,filters,ks=7,stride=2)
     pool1 = max_pool(l1)
-    l2 = res_module(l1,filtes)
-    l3 = res_module(l2,filtes)
-    l4 = res_module(l3,filtes)
+    l2 = res_module(l1,filters)
+    l3 = res_module(l2,filters)
+    l4 = res_module(l3,filters)
     
     filters *= 2
-    l5 = res_module(l4,filtes)
-    l6 = res_module(l5,filtes)
-    l7 = res_module(l6,filtes)
+    l5 = res_module(l4,filters)
+    l6 = res_module(l5,filters)
+    l7 = res_module(l6,filters)
 
     filters *= 2
-    l8 = res_module(l7,filtes)
-    l9 = res_module(l8,filtes)
-    l10 = res_module(l9,filtes)
+    l8 = res_module(l7,filters)
+    l9 = res_module(l8,filters)
+    l10 = res_module(l9,filters)
     return l10
     pass
 
